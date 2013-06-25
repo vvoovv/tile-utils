@@ -2,7 +2,7 @@
 
 The following sources of web maps are supported:
 * Bing Aerial Maps
-* Web maps with [OpenStreetMap](http://osm.org) alike tiling scheme
+* Web maps with [OpenStreetMap](http://osm.org) tiling scheme
 * [MBTiles](http://www.mbtiles.org) local files
 
 #### Possible applications
@@ -20,6 +20,7 @@ The following sources of web maps are supported:
 #### Usage
 See
 
+	cd pathTo/tile-utils
 	python stitch.py -h
 Example parameters
 
@@ -29,3 +30,7 @@ Example parameters
 	python stitch.py 58.3786,26.7188,58.3791,26.72067 http://{a,b,c}.tile.openstreetmap.org
 	# Stitching tiles from a local MBTiles file
 	python stitch.py 38.8790,-77.0471,38.8891,-77.0299 pathTo/fileName.mbtiles
+
+#### Limitation
+Only 200 tiles can be downloaded from Bing Aerial Maps or any web map with [OpenStreetMap](http://osm.org) tiling scheme.
+You can use [TileMill](http://www.mapbox.com/tilemill/) to produce your own tiles in the [MBTiles](http://www.mbtiles.org) format.
