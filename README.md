@@ -23,7 +23,7 @@ See
 	cd pathTo/tile-utils
 	python stitch.py -h
 
-Important note:
+Important note:<br>
 If your bounding box definition starts with minus, place -- before it, as in the example below.
 
 Example parameters:
