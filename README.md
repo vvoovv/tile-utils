@@ -22,14 +22,18 @@ See
 
 	cd pathTo/tile-utils
 	python stitch.py -h
-Example parameters
+
+Important note:
+If your bounding box definition starts with minus, place -- before it, as in the example below.
+
+Example parameters:
 
 	# Stitching tiles Bing Aerial Maps
-	python stitch.py 58.3786,26.7188,58.3791,26.72067 bing
+	python stitch.py 26.7188,58.3786,26.72067,58.3791 bing
 	# Stitching tiles from http://osm.org
-	python stitch.py 58.3786,26.7188,58.3791,26.72067 http://{a,b,c}.tile.openstreetmap.org
+	python stitch.py 26.7188,58.3786,26.72067,58.3791 http://{a,b,c}.tile.openstreetmap.org
 	# Stitching tiles from a local MBTiles file
-	python stitch.py 38.8790,-77.0471,38.8891,-77.0299 pathTo/fileName.mbtiles
+	python stitch.py -- -77.0471,38.8790,-77.0299,38.8891 pathTo/fileName.mbtiles
 
 #### Limitation
 Only 200 tiles can be downloaded from Bing Aerial Maps or any web map with [OpenStreetMap](http://osm.org) tiling scheme.
