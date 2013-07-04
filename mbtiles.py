@@ -19,7 +19,7 @@ class Mbtiles(Base):
 		self.closeCursor()
 		return maxZoom
 
-	def doStitching(self, bottom, left, top, right, zoom, resultImage, numTiles):
+	def doStitching(self, left, bottom, right, top, zoom, resultImage, numTiles):
 		self.createCursor()
 		tilesetSize = long(math.pow(2, zoom))
 		for tile in self.cursor.execute("SELECT tile_column, tile_row, tile_data FROM tiles WHERE zoom_level=? AND tile_column>=? AND tile_column<=? AND tile_row>=? AND tile_row<=?", (zoom, left, right, tilesetSize-bottom-1, tilesetSize-top-1)):

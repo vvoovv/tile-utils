@@ -60,8 +60,8 @@ class BingAerial(Base):
 		return url
 	
 	def getMaxZoom(self, bbox):
-		(bottom, left) = util.toSphMercator(bbox[0], bbox[1])
-		(top, right) = util.toSphMercator(bbox[2], bbox[3])
+		(bottom, left) = util.toSphMercator(bbox[1], bbox[0])
+		(top, right) = util.toSphMercator(bbox[3], bbox[2])
 		(centerY, centerX) = util.toGeographic((top+bottom)/2, (left+right)/2)
 		zoom = self.zoomMax
 		while True:

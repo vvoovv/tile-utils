@@ -15,8 +15,8 @@ class Base():
 			# finding max zoom for the central tile
 			zoom = self.getMaxZoom(bbox)
 		# converting bottom-left and top right points of bbox to tile coords
-		(bottom, left) = util.toTileCoords(bbox[0], bbox[1], zoom)
-		(top, right) = util.toTileCoords(bbox[2], bbox[3], zoom)
+		(bottom, left) = util.toTileCoords(bbox[1], bbox[0], zoom)
+		(top, right) = util.toTileCoords(bbox[3], bbox[2], zoom)
 		# calculating number of tiles
 		numXtiles = right-left+1
 		numYtiles = bottom-top+1
@@ -27,7 +27,7 @@ class Base():
 
 		# downloading tiles and composing result image
 		resultImage = Image.new("RGBA", (numXtiles*self.tileWidth, numYtiles*self.tileHeight), (0,0,0,0))
-		self.doStitching(bottom, left, top, right, zoom, resultImage, numTiles)
+		self.doStitching(left, bottom, right, top, zoom, resultImage, numTiles)
 		if kwargs["output"]:
 			outputFileName = kwargs["output"]
 		else:
@@ -38,7 +38,7 @@ class Base():
 		now = datetime.datetime.now()
 		return "%d%02d%02d%02d%02d%02d.png" % (now.year, now.month, now.day, now.hour, now.minute, now.second)
 
-	def doStitching(self, bottom, left, top, right, zoom, resultImage, numTiles):
+	def doStitching(self, left, bottom, right, top, zoom, resultImage, numTiles):
 		# downloading tiles and composing result image
 		counter = 0
 		for x in range(left, right+1):
